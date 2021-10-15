@@ -1,0 +1,131 @@
+﻿// Classe: Proj021.java
+// Mostrar DOS ALUNOS
+//Autor: Ana Carolina
+// Data: Setembro/2019
+
+import javax.swing.*;
+import javax.swing.event.*;
+import java.awt.*;
+import java.awt
+.event.*;
+
+public class Proj027 extends JFrame implements ActionListener, ListSelectionListener, ItemListener
+{
+   JButton B1, B2, B3;
+   JTextField Matricula1, Nome, DataNasc, CodCurso, NomeCurso, NP1, NP2, Media, Falta;
+   JLabel L1, L2, L3, L4, L5, L6, L7, L8, L9, L10;
+   String Matricula = "123.456-7"; 
+
+		
+   public Proj027()
+   {
+      setTitle("Tela de Mostrar Alunos");
+      setSize(500,500);
+      setLocation(80,50);
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+      L1 = new JLabel("ALUNOS");
+      L1.setLocation(30,20);
+      L1.setSize(490,20);
+      L1.setFont(new Font("Serif", Font.BOLD, 22));
+
+      L2 = new JLabel("Matrícula:");
+      L2.setLocation(30,70);
+      L2.setSize(100,20);
+      
+      L3 = new JLabel("Nome:");
+      L3.setLocation(30,72);
+      L3.setSize(150,120);
+      
+      L4 = new JLabel("Data de Nascimento:");
+      L4.setLocation(30,122);
+      L4.setSize(150,120);
+      
+      L5 = new JLabel("Código da Disciplina:");
+      L5.setLocation(30,172);
+      L5.setSize(150,120);
+      
+      L6 = new JLabel("Nome do Curso:");
+      L6.setLocation(30,222);
+      L6.setSize(150,120);
+      
+      L7 = new JLabel("NP1:");
+      L7.setLocation(30,272);
+      L7.setSize(150,120);
+      
+      L8 = new JLabel("NP2:");
+      L8.setLocation(130,272);
+      L8.setSize(150,120);
+      
+      L9 = new JLabel("Média:");
+      L9.setLocation(230,272);
+      L9.setSize(150,120);
+      
+      L10 = new JLabel("Faltas:");
+      L10.setLocation(330,272);
+      L10.setSize(150,120);
+      
+      B1 = new JButton("Incluir");
+      B1.setSize(100,40);
+      B1.setLocation(80,400);
+      B1.setBackground(new Color(150,220,255));
+      B1.addActionListener(this);
+      B1.setFont(new Font("Serif", Font.BOLD, 18));      
+      B1.setBackground(new Color(130,155,255));
+
+      B2 = new JButton("Sair");
+      B2.setSize(100,40);
+      B2.setLocation(280,400);
+      B2.setBackground(new Color(150,220,255));
+      B2.addActionListener(this);
+      B2.setFont(new Font("Serif", Font.BOLD, 18));      
+      B2.setBackground(new Color(130,155,255));
+      
+      B3 = new JButton("Limpar");
+      B3.setSize(100,40);
+      B3.setLocation(180,400);
+      B3.setBackground(new Color(150,220,255));
+      B3.addActionListener(this);
+      B3.setFont(new Font("Serif", Font.BOLD, 18));      
+      B3.setBackground(new Color(130,155,255));
+
+      getContentPane().setLayout(null);
+      getContentPane().add(L1);
+      getContentPane().add(L2);
+      getContentPane().add(L3);
+      getContentPane().add(L4);
+      getContentPane().add(L5);
+      getContentPane().add(L6);
+      getContentPane().add(L7);
+      getContentPane().add(L8);
+      getContentPane().add(L9);
+      getContentPane().add(L10);
+      getContentPane().add(B1);
+      getContentPane().add(B2);
+      getContentPane().add(B3);
+   }
+   
+   public static void main(String arg[])
+{
+	new Proj027().setVisible(true);
+}
+
+@Override
+public void itemStateChanged(ItemEvent arg0) {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public void valueChanged(ListSelectionEvent arg0) {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public void actionPerformed(ActionEvent arg0) {
+	// TODO Auto-generated method stub
+	
+}
+
+}

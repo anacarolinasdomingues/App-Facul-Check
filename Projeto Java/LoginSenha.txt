@@ -1,0 +1,148 @@
+import java.awt.*;
+import java.awt.event.*;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.event.*;
+
+public class LoginSenha extends JFrame implements ActionListener
+{
+	JLabel jlogin, jsenha, ja, jp, jrodape;
+	JTextField txlogin;
+	JPasswordField pwsenha;
+	JButton entrar, limpar, sair; 
+	Dimension x, y;
+	String login="epaminondas", password = "java";
+	int vzs= 0;
+
+
+
+public LoginSenha()
+{
+	Dimension x = new Dimension(120, 30);
+	Dimension y = new Dimension(160, 20);
+	setTitle("Login");
+	setSize(800, 600);
+	setLocation(400, 100);
+	setResizable(false);
+	setLayout(null);
+	getContentPane().setBackground(Color.yellow);
+	setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+	
+	jlogin = new JLabel("Login: ");
+	jlogin.setSize(x);
+	jlogin.setLocation(100, 150);
+	
+	jsenha = new JLabel("Senha: ");
+	jsenha.setSize(x);
+	jsenha.setLocation(75, 190);
+	
+	getContentPane().add(jlogin);
+	getContentPane().add(jsenha);
+	
+	jrodape = new JLabel("Desenvolvido por: ");
+	jrodape.setSize(x);
+	jrodape.setLocation(15, 390);
+	jrodape.setFont(new Font("Serif", Font.BOLD, 9));
+	jrodape.setForeground(new Color(0, 0, 0));
+	
+	ja = new JLabel("Ana Carolina, RA: N2874G0 ");
+	ja.setSize(x);
+	ja.setLocation(15, 410);
+	ja.setFont(new Font("Serif", Font.BOLD, 9));
+	ja.setForeground(new Color(0, 0, 0));
+	
+	jp = new JLabel("Pedro Miguel, RA: D83GII3");
+	jp.setSize(x);
+	jp.setLocation(15, 430);
+	jp.setFont(new Font("Serif", Font.BOLD, 9));
+	jp.setForeground(new Color(0, 0, 0));
+	
+	getContentPane().add(jrodape);
+	getContentPane().add(ja);
+	getContentPane().add(jp);
+	
+	txlogin = new JTextField("");
+	txlogin.setSize(y);
+	txlogin.setLocation(140, 157);
+	
+	pwsenha = new JPasswordField("");
+	pwsenha.setSize(y);
+	pwsenha.setLocation(140, 197);
+	
+	getContentPane().add(txlogin);
+	getContentPane().add(pwsenha);
+	
+	entrar = new JButton("ENTRAR");
+	entrar.setSize(100, 40);
+	entrar.setLocation(390, 90);
+	entrar.addActionListener(this);
+	
+	limpar = new JButton("LIMPAR");
+	limpar.setSize(100, 40);
+	limpar.setLocation(390, 160);
+	limpar.addActionListener(this);
+	
+	sair = new JButton("SAIR");
+	sair.setSize(100, 40);
+	sair.setLocation(390, 230);
+	sair.addActionListener(this);
+	
+	getContentPane().add(entrar);
+	getContentPane().add(limpar);
+	getContentPane().add(sair);
+}
+
+public static void main(String args[])
+{
+	new LoginSenha().setVisible(true);
+}
+
+@SuppressWarnings("deprecation")
+public void actionPerformed(ActionEvent e)
+{
+	String senhacima, senhabaixo;
+	senhacima = txlogin.getText();
+	senhabaixo = pwsenha.getText();
+	
+	if(e.getSource() == sair)
+	{
+		System.exit(0);
+	}
+	
+	else if(e.getSource() == entrar)
+	{
+		if(senhacima.equals(login) && senhabaixo.equals(password))
+		{
+			Proj02 obj = new Proj02();
+	          obj.setVisible(true);
+			new LoginSenha().setVisible(false);
+			dispose();
+		}
+		
+		else
+		{
+			if(vzs>=3)
+			{
+				System.exit(0);
+			}
+			else
+			{
+				txlogin.setText("");
+				pwsenha.setText("");
+				JOptionPane.showMessageDialog(null, "Você errou mais " + (3-(vzs+1)) + "Tentativa(s)");
+				vzs++;
+			}
+		}
+	}
+	
+	else if(e.getSource() == limpar);
+	{
+		
+	}
+}
+}

@@ -1,0 +1,210 @@
+﻿// Classe: Proj021.java
+// MOSTRAR PROFESSORES
+//Autor: Ana Carolina
+// Data: Setembro/2019
+
+import javax.swing.*;
+import javax.swing.event.*;
+import java.awt.*;
+import java.awt
+.event.*;
+
+public class Proj028 extends JFrame implements ActionListener, ListSelectionListener, ItemListener
+{
+   JButton B1, B2, B3;
+   JTextField IdentProf, NomeProf, EndProf, DataNasc, NProf, BProf, CProf, EProf,Tel;
+   JLabel L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12;
+   DefaultListModel lista;
+   JList EspecProf;
+   ButtonGroup Bg, Bg1;
+   JRadioButton Tipo1, Tipo2, Tipo3, Tipo4, Tipo5, Tipo6;
+   String Matricula = "123.456-7"; 
+
+		
+   public Proj028()
+   {
+      setTitle("Tela de Mostrar Professores");
+      setSize(500,500);
+      setLocation(80,50);
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+      L1 = new JLabel("PROFESSORES");
+      L1.setLocation(30,20);
+      L1.setSize(490,20);
+      L1.setFont(new Font("Serif", Font.BOLD, 22));
+
+      L2 = new JLabel("Nome:");
+      L2.setLocation(30,70);
+      L2.setSize(100,20);
+      
+      L3 = new JLabel("Identidade:");
+      L3.setLocation(30,52);
+      L3.setSize(150,120);
+      
+      L4 = new JLabel("Data de Nascimento:");
+      L4.setLocation(250,52);
+      L4.setSize(150,120);
+      
+      L5 = new JLabel("Endereço-Bairro:");
+      L5.setLocation(30,80);
+      L5.setSize(150,120);
+      
+      L6 = new JLabel("Número:");
+      L6.setLocation(290,80);
+      L6.setSize(150,120);
+      
+      L7 = new JLabel("Cidade-Estado:");
+      L7.setLocation(30,110);
+      L7.setSize(150,120);
+      
+      L8 = new JLabel("Telefone:");
+      L8.setLocation(290,110);
+      L8.setSize(150,120);
+      
+      L9 = new JLabel("Especificação:");
+      L9.setLocation(280,160);
+      L9.setSize(200,120);
+      
+      lista = new DefaultListModel();
+      lista.addElement("Administração de Empresas");
+      lista.addElement("Bio Medicina");
+      lista.addElement("Ciências Biológicas");
+      lista.addElement("Ciências da Computação");
+      lista.addElement("Direito");
+      lista.addElement("Educação Física");
+      lista.addElement("Farmacologia");
+      lista.addElement("Rede de Computadores");
+      lista.addElement("Sistemas de Computação");
+
+      EspecProf = new JList(lista);
+      EspecProf.setSize(180,170);
+      EspecProf.setLocation(280,230);
+      EspecProf.setBackground(new Color(208,255,255));
+      EspecProf.addListSelectionListener(this);
+		
+      L10 = new JLabel("Título do Professor:");
+      L10.setLocation(30,210);
+      L10.setSize(150,20);
+
+      Tipo1 = new JRadioButton("Bacharel", true);
+      Tipo1.setLocation(25,230);
+      Tipo1.setSize(80,20);
+      Tipo1.addItemListener(this);
+      Tipo1.setBackground(new Color(208,255,255));
+		
+      Tipo2 = new JRadioButton("Gestão", false);
+      Tipo2.setLocation(25,260);
+      Tipo2.setSize(80,20);
+      Tipo2.addItemListener(this);
+      Tipo2.setBackground(new Color(208,255,255));
+      
+      Tipo3 = new JRadioButton("Outros", false);
+      Tipo3.setLocation(25,290);
+      Tipo3.setSize(80,20);
+      Tipo3.addItemListener(this);
+      Tipo3.setBackground(new Color(208,255,255));
+      
+      Bg = new ButtonGroup();
+      Bg.add(Tipo1);
+      Bg.add(Tipo2);
+      Bg.add(Tipo3);
+      
+      L11 = new JLabel("Especialista:");
+      L11.setLocation(170,210);
+      L11.setSize(150,20);
+
+      Tipo4 = new JRadioButton("Lato Sensu", true);
+      Tipo4.setLocation(170,230);
+      Tipo4.setSize(100,20);
+      Tipo4.addItemListener(this);
+      Tipo4.setBackground(new Color(208,255,255));
+		
+      Tipo5 = new JRadioButton("Mestrado", false);
+      Tipo5.setLocation(170,260);
+      Tipo5.setSize(100,20);
+      Tipo5.addItemListener(this);
+      Tipo5.setBackground(new Color(208,255,255));
+      
+      Tipo6 = new JRadioButton("Doutorado", false);
+      Tipo6.setLocation(170,290);
+      Tipo6.setSize(100,20);
+      Tipo6.addItemListener(this);
+      Tipo6.setBackground(new Color(208,255,255));
+
+      Bg1 = new ButtonGroup();
+      Bg1.add(Tipo4);
+      Bg1.add(Tipo5);
+      Bg1.add(Tipo6);
+    
+      B1 = new JButton("Incluir");
+      B1.setSize(100,40);
+      B1.setLocation(80,400);
+      B1.setBackground(new Color(150,220,255));
+      B1.addActionListener(this);
+      B1.setFont(new Font("Serif", Font.BOLD, 18));      
+      B1.setBackground(new Color(130,155,255));
+
+      B2 = new JButton("Sair");
+      B2.setSize(100,40);
+      B2.setLocation(280,400);
+      B2.setBackground(new Color(150,220,255));
+      B2.addActionListener(this);
+      B2.setFont(new Font("Serif", Font.BOLD, 18));      
+      B2.setBackground(new Color(130,155,255));
+      
+      B3 = new JButton("Limpar");
+      B3.setSize(100,40);
+      B3.setLocation(180,400);
+      B3.setBackground(new Color(150,220,255));
+      B3.addActionListener(this);
+      B3.setFont(new Font("Serif", Font.BOLD, 18));      
+      B3.setBackground(new Color(130,155,255));
+
+      getContentPane().setLayout(null);
+      getContentPane().add(L1);
+      getContentPane().add(L2);
+      getContentPane().add(L3);
+      getContentPane().add(L4);
+      getContentPane().add(L5);
+      getContentPane().add(L6);
+      getContentPane().add(L7);
+      getContentPane().add(L8);
+      getContentPane().add(L9);
+      getContentPane().add(L10);
+      getContentPane().add(L11);
+      getContentPane().add(EspecProf);
+      getContentPane().add(Tipo1);
+      getContentPane().add(Tipo2);
+      getContentPane().add(Tipo3);
+      getContentPane().add(Tipo4);
+      getContentPane().add(Tipo5);
+      getContentPane().add(Tipo6);
+      getContentPane().add(B1);
+      getContentPane().add(B2);
+      getContentPane().add(B3);
+   }
+   
+   public static void main(String arg[])
+{
+	new Proj028().setVisible(true);
+}
+
+@Override
+public void itemStateChanged(ItemEvent arg0) {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public void valueChanged(ListSelectionEvent arg0) {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public void actionPerformed(ActionEvent arg0) {
+	// TODO Auto-generated method stub
+	
+}
+
+}
